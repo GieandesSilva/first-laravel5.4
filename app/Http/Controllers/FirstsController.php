@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+
 use App\First;
 
 use Illuminate\Http\Request;
@@ -30,6 +32,8 @@ class FirstsController extends Controller
 
     	$first->save();
 
+    	Session::flash('success', 'Your first was created');
+
     	return redirect()->back();
     }
 
@@ -41,6 +45,7 @@ class FirstsController extends Controller
 
 		$first->delete();
 
+    	Session::flash('success', 'Your first was removed');
 
 		return redirect()->back();    	
     }
@@ -65,6 +70,8 @@ class FirstsController extends Controller
 
     	$first->save();
 
+    	Session::flash('success', 'Your first was updated');
+
     	return redirect()->route('firsts');
 
     }
@@ -78,6 +85,9 @@ class FirstsController extends Controller
     	$first->completed = 1;
 
     	$first->save();
+
+
+    	Session::flash('success', 'Your first was completed');
 
     	return redirect()->back();
     }
