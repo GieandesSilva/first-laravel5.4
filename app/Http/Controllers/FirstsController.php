@@ -51,8 +51,33 @@ class FirstsController extends Controller
 
     	$first = First::find($id);
 
-    	$first->update();
+    	return view('update')->with('first', $first);
+    }
 
+    public function save(Request $request, $id) 
+
+    {
+
+
+    	$first = First::find($id);
+
+    	$first->first = $request->first;
+
+    	$first->save();
+
+    	return redirect()->route('firsts');
+
+    }
+
+    public function completed($id) 
+
+    {
+
+    	$first = first::find($id);
+
+    	$first->completed = 1;
+
+    	$first->save();
 
     	return redirect()->back();
     }

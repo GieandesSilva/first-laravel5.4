@@ -23,7 +23,9 @@ Route::get('/new', [
 
 Route::get('/firsts', [
 
-	'uses' => 'FirstsController@index'
+	'uses' => 'FirstsController@index',
+
+	'as' => 'firsts'
 ]);
 
 Route::get('/first/delete/{id}', [
@@ -40,7 +42,22 @@ Route::get('/first/update/{id}', [
 	'uses' => 'FirstsController@update',
 
 	'as' => 'first.update'
-])
+]);
+
+Route::get('/firsts/completed/{id}', [
+
+	'uses' => 'FirstsController@completed',
+
+	'as' => 'firsts.completed'
+]);
+
+Route::post('/first/save/{id}', [
+
+	'uses' => 'FirstsController@save',
+
+	'as' => 'firsts.save'
+
+]);
 
 
 Route::post('/create/first', [

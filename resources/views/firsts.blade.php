@@ -23,8 +23,19 @@
     @foreach($firsts as $first)
 
         {{ $first->first }} 
-        <a href=" {{ route('first.delete', ['id' => $first->id]) }}" class="btn btn-danger">x</a>
-        <a href=" {{ route('first.update', ['id' => $first->id]) }}" class="btn btn-info btn-sm">update</a>
+        <a href="{{ route('first.delete', ['id' => $first->id]) }}" class="btn btn-danger">x</a>
+        <a href="{{ route('first.update', ['id' => $first->id]) }}" class="btn btn-info btn-sm">update</a>
+
+        @if(!$first->completed)
+
+            <a href="{{ route('firsts.completed', ['id' => $first->id]) }}" class="btn btn-sm btn-success"> Mark as completed </a>
+       
+        @else
+
+            <span class="text-success"> Completed </span>
+
+        @endif
+
         <hr>
     
     @endforeach
