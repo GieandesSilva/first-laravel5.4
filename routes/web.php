@@ -20,3 +20,32 @@ Route::get('/new', [
 
 	'uses' => 'pagesController@new'
 ]);
+
+Route::get('/firsts', [
+
+	'uses' => 'FirstsController@index'
+]);
+
+Route::get('/first/delete/{id}', [
+
+	'uses' => 'FirstsController@delete',
+
+	'as' => 'first.delete'
+]);
+
+
+Route::get('/first/update/{id}', [
+
+
+	'uses' => 'FirstsController@update',
+
+	'as' => 'first.update'
+])
+
+
+Route::post('/create/first', [
+
+
+	'uses' => 'FirstsController@store'
+
+]);

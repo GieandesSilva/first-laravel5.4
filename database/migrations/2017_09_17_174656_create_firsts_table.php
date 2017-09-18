@@ -13,6 +13,7 @@ class CreateFirstsTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('firsts', function (Blueprint $table) {
             
             $table->increments('id');
@@ -32,6 +33,7 @@ class CreateFirstsTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('firsts');
     }
 }

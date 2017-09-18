@@ -23,3 +23,14 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+// Factory responsible to return data faker for First
+
+$factory->define(App\First::class, function (Faker $faker) {
+
+	return [
+
+		'first' => $faker->sentence(10)
+	];
+});
